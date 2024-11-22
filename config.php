@@ -9,7 +9,7 @@ class config
         if (!isset(self::$pdo)) {
             try {
                 self::$pdo = new PDO(
-                    'mysql:host=127.0.0.1;dbname=Grow&Glow',
+                    'mysql:host=127.0.0.1;dbname=agriculture',
                     'root',
                     '',
                     [
@@ -19,7 +19,7 @@ class config
                 );
             } catch (Exception $e) {
                 die('Erreur: ' . $e->getMessage());
-            }
+            } echo "db connected";
         }
         return self::$pdo;
     }
