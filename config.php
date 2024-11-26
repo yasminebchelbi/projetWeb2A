@@ -1,6 +1,5 @@
 <?php
-
-class config
+class Config
 {
     private static $pdo = null;
 
@@ -9,20 +8,16 @@ class config
         if (!isset(self::$pdo)) {
             try {
                 self::$pdo = new PDO(
-                    'mysql:host=127.0.0.1;dbname=Grow&Glow',
+                    'mysql:host=127.0.0.1;dbname=gestionreclamationsdb',
                     'root',
                     '',
-                    [
-                        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-                    ]
+                    [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
                 );
-            } catch (Exception $e) {
-                die('Erreur: ' . $e->getMessage());
+            } catch (PDOException $e) {
+                die('Erreur de connexion : ' . $e->getMessage());
             }
         }
         return self::$pdo;
     }
 }
-
-config::getConnexion();
+?>

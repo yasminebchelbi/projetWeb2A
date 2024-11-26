@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Réclamations</title>
+    <link rel="stylesheet" href="reclamation.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestion des Réclamations</h1>
+
+        <!-- Formulaire pour ajouter une réclamation -->
+        <section>
+            <h2>Faire une Réclamation</h2>
+            <form method="POST" action="addReclamation.php">
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" placeholder="Entrez votre nom" >
+
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" placeholder="Entrez votre email" >
+
+                <label for="idCommande">ID Commande :</label>
+                <input type="number" id="idCommande" name="idCommande" placeholder="Entrez l'ID de la commande" >
+
+                <label for="typeCommande">Type de Commande :</label>
+                <select id="typeCommande" name="typeCommande" >
+                    <option value="Produit">Produit</option>
+                    <option value="Service">Service</option>
+                </select>
+
+                <label for="contenuReclamation">Contenu de la Réclamation :</label>
+                <textarea id="contenuReclamation" name="contenuReclamation" rows="4" placeholder="Expliquez votre réclamation" ></textarea>
+
+                <button type="submit">Soumettre la Réclamation</button>
+            </form>
+        </section>
+
+        <!-- Liste des réclamations -->
+        <section>
+            <h2>Réclamations enregistrées</h2>
+            <?php
+            // Inclure le fichier pour afficher la liste des réclamations
+            include 'listReclamations.php';
+            ?>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
